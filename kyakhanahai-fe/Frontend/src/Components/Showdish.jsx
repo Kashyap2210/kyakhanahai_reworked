@@ -88,26 +88,32 @@ export default function Showdish() {
   return (
     <div className="pt-8 gap-20 flex flex-col justify-around">
       <h1 className="text-center text-4xl font-bold">Added Dishes</h1>
-      <div className="flex justify-center items-center mt-16 mb-16">
+      <div className="flex justify-center items-center mb-16">
         {dishes.length > 0 ? (
           <div className="w-full max-w-4xl max-h-[400px] overflow-y-auto scrollbar scrollbar-none">
             <table className="table-auto w-full border border-black">
               <thead className="border border-black">
                 <tr className="border border-black">
                   <th className="hidden">ID</th>
-                  <th className="border border-black p-4">Name</th>
-                  <th className="border border-black p-4">Category</th>
-                  <th className="border border-black p-4">Type</th>
+                  <th className="border border-black p-4 text-2xl">Name</th>
+                  <th className="border border-black p-4 text-2xl">Category</th>
+                  <th className="border border-black p-4 text-2xl">Type</th>
                 </tr>
               </thead>
               <tbody>
                 {dishes.map((dish) => (
                   <tr key={dish._id}>
                     <td className="hidden">{dish._id}</td>
-                    <td className="border border-black p-4">{dish.name}</td>
-                    <td className="border border-black p-4">{dish.category}</td>
-                    <td className="border border-black p-4">{dish.type}</td>
-                    <td className="border border-black p-4">
+                    <td className="border border-black p-4 text-xl">
+                      {dish.name}
+                    </td>
+                    <td className="border border-black p-4 text-xl">
+                      {dish.category}
+                    </td>
+                    <td className="border border-black p-4 text-xl">
+                      {dish.type}
+                    </td>
+                    <td className="border border-black p-4 text-xl">
                       <Button onClick={() => deleteDish(dish._id)}>
                         <DeleteOutlineIcon
                           color="secondary"

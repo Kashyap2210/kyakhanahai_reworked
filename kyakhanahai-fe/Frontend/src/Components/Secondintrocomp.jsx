@@ -95,15 +95,15 @@ export default function Secondintrocomp() {
 
   return (
     <div>
-      <div className="main-content flex items-center justify-between bg-bg-champagne p-8">
+      <div className="main-content flex items-center justify-between bg-bg-champagne p-8 text-3xl text-justify	">
         <img
           // style={{ borderRadius: "12px" }} // Set border radius with inline styles
           src="second_intro.jpg"
           alt=""
           className="w-1/2 main-content rounded-2xl"
         />
-        <p className="w-1/2">
-          <i>How do we do it?</i>
+        <p className="w-1/2 pl-4">
+          <i className="text-4xl font-bold">How do we do it?</i>
           <br />
           We take info from you about what you eat regularly & select a random
           dish for you from yout persomalised data.

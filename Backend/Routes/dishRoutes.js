@@ -37,7 +37,6 @@ router.post(
 router.get(
   "/getNearbyRestaurants",
   isLoggedIn,
-  // dishControllers.searchNearByRestaurants
   dishControllers.searchNearbyRestaurants
 );
 

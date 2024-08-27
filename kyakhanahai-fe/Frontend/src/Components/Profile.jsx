@@ -148,7 +148,7 @@ export default function Profile() {
               variant="contained"
               onClick={deleteUser}
               sx={{
-                marginTop: "2rem",
+                // marginTop: "2rem",
                 backgroundColor: "#e53935",
                 color: "#ffeb3b",
                 fontWeight: "550",

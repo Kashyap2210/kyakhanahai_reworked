@@ -131,6 +131,7 @@ export default function Login() {
               color="secondary"
               type="submit"
               className="w-full"
+              onClick={handleSubmit}
               sx={{
                 backgroundColor: "#e53935",
                 color: "#ffeb3b",
