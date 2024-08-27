@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f7e7ce;
+}
+
+.main-content {
+  height: calc(100vh - 4rem); /* Adjust the height based on the navbar height */
+}
+
+.navbar {
+  z-index: 9999 !important;
+}
+.mapBox {
+  flex: 2 !important;
+  overflow: auto !important;
+}
+
+.glass {
+  /* background: rgb(240 171 252); */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.button {
+  background-color: #e53935 !important;
+}
+
+.image-radius {
+  border-radius: 1rem !important;
+}
