@@ -9,7 +9,8 @@ export default {
       colors: {
         "bg-red": "#E53935", // Background color
         "font-yellow": "#FFEB3B", // Font color
-        "bg-champagne": "#F7E7CE", // Background champagne color
+        // "bg-champagne": "#F7E7CE", // Background champagne color
+        "bg-champagne": "#D8BFD8", // Background champagne color
         "border-muted-gold": "#D4AF37", // Border color
       },
     },
