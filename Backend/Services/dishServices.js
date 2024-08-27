@@ -1,6 +1,5 @@
 require("dotenv").config(); // Load environment variables
 const axios = require("axios"); //Used to send async req to REST Endpoints
-
 const Dish = require("../Models/dish.js");
 const GEMINI_KEY = process.env.GOOGLE_GEMINI_API;
 const apiKey = process.env.GOOGLE_API_KEY;

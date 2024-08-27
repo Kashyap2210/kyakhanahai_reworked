@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
-const Dish = require("../Models/dish.js");
 const dishControllers = require("../Controllers/dishControllers.js");
-const isLoggedIn = require("../middleware.js"); //We will make this middleware later and then add it to the "SHOWDISH", "ADD DISH" & "GENERATE DISH"
+const isLoggedIn = require("../middleware.js");
 
 router.post(
   "/adddish",

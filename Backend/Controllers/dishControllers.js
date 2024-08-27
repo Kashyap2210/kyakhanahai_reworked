@@ -1,6 +1,5 @@
 require("dotenv").config(); //Use it to deal with Enviorment Variables
 const express = require("express");
-const app = express();
 
 //Used for Authentication
 const { storage } = require("../cloudConfig");
