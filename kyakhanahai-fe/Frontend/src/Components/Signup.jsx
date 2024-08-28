@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import axios from "axios";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +13,7 @@ const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
 
 export default function Signup() {
   const { userDetails, setUserDetails } = useContext(UserProfileContext);
+  const [error, setError] = useState(false);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -69,6 +71,14 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (userDetails.password?.length < 10) {
+      setError(true);
+      return;
+    }
+    if (userDetails.phone?.length < 10) {
+      setError(true);
+      return;
+    }
     const formData = new FormData();
     formData.append("email", userDetails?.email || "");
     formData.append("password", userDetails?.password || "");
@@ -237,37 +247,56 @@ export default function Signup() {
               />
             </div>
             <div className="m-4 w-80">
-              <TextField
-                id="outlined-password"
-                label="Password"
-                variant="outlined"
-                type="password"
-                value={userDetails?.password || ""}
-                onChange={(e) =>
-                  setUserDetails((prevDetails) => ({
-                    ...prevDetails,
-                    password: e.target.value,
-                  }))
-                }
-                required
-                fullWidth
-              />
+              <Box component="form" noValidate autoComplete="off">
+                <TextField
+                  id="outlined-password"
+                  label="Password"
+                  variant="outlined"
+                  type="password"
+                  value={userDetails?.password || ""}
+                  onChange={(e) =>
+                    setUserDetails((prevDetails) => ({
+                      ...prevDetails,
+                      password: e.target.value,
+                    }))
+                  }
+                  error={error}
+                  helperText={
+                    error ? "Password must be at least 10 characters long." : ""
+                  }
+                  inputProps={{
+                    minLength: 10,
+                  }}
+                  required
+                  fullWidth
+                />
+              </Box>
             </div>
             <div className="m-4 w-80">
-              <TextField
-                id="outlined-number"
-                label="Phone Number"
-                variant="outlined"
-                value={userDetails?.phone || ""}
-                onChange={(e) =>
-                  setUserDetails((prevDetails) => ({
-                    ...prevDetails,
-                    phone: e.target.value,
-                  }))
-                }
-                required
-                fullWidth
-              />
+              <Box component="form" noValidate autoComplete="off">
+                <TextField
+                  id="outlined-number"
+                  label="Phone Number"
+                  variant="outlined"
+                  // type="number"
+                  value={userDetails?.phone || ""}
+                  onChange={(e) =>
+                    setUserDetails((prevDetails) => ({
+                      ...prevDetails,
+                      phone: e.target.value,
+                    }))
+                  }
+                  error={error}
+                  helperText={
+                    error ? "Phone Number must be 10 digit long." : ""
+                  }
+                  inputProps={{
+                    minLength: 10,
+                  }}
+                  required
+                  fullWidth
+                />
+              </Box>
             </div>
           </div>
         </div>

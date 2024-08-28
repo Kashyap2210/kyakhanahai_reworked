@@ -59,10 +59,10 @@ export default function Bavarchi() {
 
   return (
     <div className="h-screen text-center">
-      <h1 className="mt-8 h-16 text-4xl font-medium	">Ask Bavarchi</h1>
-      <p className="text-2xl">
-        Just Enter The Ingredients That You Have & Out AI Assistant Will Give
-        You All The Dishes That You Can Make With That Ingredients.
+      <h1 className="mt-8 h-16 text-4xl font-bold	">Ask Bavarchi</h1>
+      <p className="text-3xl ">
+        Just Enter The Ingredients & Our AI Assistant Will Give You All The
+        Dishes That You Can Make With Ingredients.
       </p>
       <input
         type="text"
