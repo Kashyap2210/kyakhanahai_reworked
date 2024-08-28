@@ -71,9 +71,6 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex justify-between items-center text-center pr-8">
-            <Link to="/contactUs">
-              <Navbarelements title={"Contact Us"} />
-            </Link>
             {isAuthenticated ? (
               // COnditional rendering based on the state variable value
               <div>
@@ -111,6 +108,9 @@ export default function Navbar() {
             ) : (
               <></>
             )}
+            <Link to="/contactUs">
+              <Navbarelements title={"Contact Us"} />
+            </Link>
           </div>
         </div>
       </div>
