@@ -10,72 +10,42 @@ import { Link } from "react-router-dom"; //Link is used to give useNavigate a li
 const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL;
 
 export default function Profile() {
-  const { userDetails, isAuthenticated, jwtToken } =
-    useContext(UserProfileContext);
+  const {
+    userDetails,
+    isAuthenticated,
+    jwtToken,
+    setIsAuthenticated,
+    setJwtToken,
+    setUserDetails,
+  } = useContext(UserProfileContext);
   console.log(userDetails);
   const navigate = useNavigate();
-  // const [loading, setLoading] = useState(true);
 
-  /*
-
-  WE GET THE USER DETAILS FROM THE JWT TOKEN
-
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      try {
-        const userResponse = await axios.get(
-          `${VITE_APP_API_URL}/api/authenticate/user`,
-          {
-            withCredentials: true,
-          }
-        );
-        console.log(userResponse.data);
-        // Update context with user details
-        setUserDetails(userResponse.data);
-        // setLoading(false);
-      } catch (error) {
-        console.error("Error fetching user details:", error);
-        // setLoading(false);
-        navigate("/"); // Redirect to home if there's an error
-      }
-    };
-
-    // Fetch user details if not already present
-
-    fetchUserDetails();
-    const intervalId = setInterval(fetchUserDetails, 1000); //Sets periodic timer that calls checkAuth every second.
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
-
-  if (!userDetails || !userDetails.username) {
-    return <p className="text-white">Please log in again.</p>; // Redirect or show message
-  }
-
-  */
   const profilePicUrl = userDetails.profilePic;
 
   const deleteUser = async () => {
     if (isAuthenticated == true) {
+      console.log(userDetails._id);
       try {
-        const deleteAccount = await axios.delete(
+        const response = await axios.delete(
           `${VITE_APP_API_URL}/api/authenticate/deleteaccount`,
           {
             headers: {
               Authorization: `Bearer ${jwtToken}`,
             },
-          },
-          {
             data: { userId: userDetails._id }, // Sending additional data
             withCredentials: true,
           }
         );
-        if (deleteAccount.status === 200) {
-          console.log("Account Deleted");
+        if (response.status === 200) {
+          alert("Account Deleted");
+          setIsAuthenticated(false);
+          localStorage.removeItem("jwtToken");
+          setJwtToken(null);
+          localStorage.removeItem("userDetails");
+          setUserDetails(null);
+          console.log("User successfully logged out from Frontend");
+          navigate("/");
         }
       } catch (error) {
         console.error("Error deleting account:", error);
