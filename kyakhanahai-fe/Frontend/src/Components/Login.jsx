@@ -21,7 +21,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-    if (userDetails.password?.length < 10) {
+    if (password?.length < 10) {
       setError(true);
       return;
     }
