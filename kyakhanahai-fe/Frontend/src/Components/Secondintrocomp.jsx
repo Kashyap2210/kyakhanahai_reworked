@@ -95,7 +95,7 @@ export default function Secondintrocomp() {
 
   return (
     <div>
-      <div className="main-content flex items-center justify-between bg-bg-champagne p-8 text-3xl text-justify	">
+      <div className="main-content flex items-center justify-between bg-bg-champagne p-8 text-2xl text-justify	">
         <img
           // style={{ borderRadius: "12px" }} // Set border radius with inline styles
           src="second_intro.jpg"

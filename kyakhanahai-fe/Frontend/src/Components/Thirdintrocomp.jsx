@@ -15,7 +15,7 @@ export default function Thirdintrocomp() {
 
   return (
     <div className="p-8">
-      <div className="main-content flex items-center justify-between bg-bg-champagne text-3xl text-justify">
+      <div className="main-content flex items-center justify-between bg-bg-champagne text-2xl text-justify">
         <p className="w-1/2 pr-8">
           <i className="text-4xl font-bold">Ask AI </i>
           <br />

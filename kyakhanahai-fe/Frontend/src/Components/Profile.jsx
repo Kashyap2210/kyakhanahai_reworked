@@ -58,7 +58,7 @@ export default function Profile() {
 
   return (
     // This is the grand container div
-    <div className="container  py-16 px-20 flex  items-center align-center justify-center	">
+    <div className="container py-16 px-20 flex  items-center align-center justify-center	">
       {" "}
       {/* LHS Section Starts Here */}
       <div className="lhs-side  flex gap-4 flex-col items-center align-center  w-1/2">
@@ -69,7 +69,7 @@ export default function Profile() {
             "No image available"
           )}
         </div>
-        <div className="text-4xl font-semibold	">
+        <div className="text-2xl font-semibold	">
           {userDetails.name || "Not available"}
         </div>
         <div className="text-xl font-normal	">
@@ -79,11 +79,11 @@ export default function Profile() {
       {/* LHS Section Ends Here */}
       {/* RHS Section Starts Here */}
       <div className="rhs-side h-100 flex gap-12 flex-col items-center align-center w-1/2">
-        <div className="text-4xl">
+        <div className="text-xl">
           <PinDropIcon sx={{ fontSize: 36, lineHeight: 40 }} />
           {userDetails.address || "Not available"}
         </div>
-        <div className="text-4xl">
+        <div className="text-xl">
           <PinDropIcon sx={{ fontSize: 36, lineHeight: 40 }} />
           Locality: {userDetails.locality || "Not available"}
         </div>
@@ -97,7 +97,7 @@ export default function Profile() {
               color="secondary"
               variant="contained"
               sx={{
-                marginTop: "2rem",
+                // marginTop: "2rem",
                 backgroundColor: "#e53935",
                 color: "#ffeb3b",
                 fontWeight: "550",

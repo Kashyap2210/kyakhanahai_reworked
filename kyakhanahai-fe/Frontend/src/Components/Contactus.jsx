@@ -47,7 +47,7 @@ export default function Messagesection() {
   };
 
   return (
-    <form className={`h-80%`} onSubmit={handleSubmit}>
+    <form className={`h-screen`} onSubmit={handleSubmit}>
       <div className="sm-devices-textfields flex flex-col items mx-20 py-20">
         <TextField
           id="outlined-name"
