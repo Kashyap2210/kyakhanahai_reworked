@@ -13,13 +13,17 @@ export default function Login() {
   const { setIsAuthenticated } = useContext(UserProfileContext);
   const [username, setUsername] = useState(""); // Username is stored as state variable
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const { userDetails, setUserDetails, setJwtToken } =
     useContext(UserProfileContext); // Get context setter function
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-
+    if (userDetails.password?.length < 10) {
+      setError(true);
+      return;
+    }
     const credentials = { username, password }; // Construct the credentials object
 
     try {
@@ -62,16 +66,25 @@ export default function Login() {
           />
         </div>
         <div className="m-8">
-          <TextField
-            id="outlined-password-login"
-            label="Password"
-            variant="outlined"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            fullWidth
-          />
+          <Box component="form" noValidate autoComplete="off">
+            <TextField
+              id="outlined-password-login"
+              label="Password"
+              variant="outlined"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={error}
+              helperText={
+                error ? "Password must be at least 10 characters long." : ""
+              }
+              inputProps={{
+                minLength: 10,
+              }}
+              required
+              fullWidth
+            />
+          </Box>
         </div>
         <div className="w-full px-8">
           <Button
