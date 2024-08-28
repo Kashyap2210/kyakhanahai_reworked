@@ -15,6 +15,7 @@ import Getdish from "./Components/Getdish";
 import Profile from "./Components/Profile";
 import Bavarchi from "./Components/Bavarchi.jsx";
 import Checkplaces from "./Components/Checkplaces.jsx";
+import Contactus from "./Components/Contactus.jsx";
 
 const router = createBrowserRouter([
   // "createBrowserRouter" is used to create a router object with route definitions.
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: "/profile", element: <Profile /> },
       { path: "/bavarchi", element: <Bavarchi /> },
       { path: "/checkplaces", element: <Checkplaces /> },
+      { path: "/contactUs", element: <Contactus /> },
     ],
   },
 ]);
