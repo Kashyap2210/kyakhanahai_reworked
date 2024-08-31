@@ -25,7 +25,7 @@ connectToDB();
 // Cors Setup Start
 app.use(
   cors({
-    origin: "http://localhost:5173", // Replace with your frontend origin
+    origin: process.env.ALLOWED_URLS,
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true,
