@@ -5,25 +5,30 @@ export const UserProfileContextProvider = ({ children }) => {
   // Initialize state from localStorage, or with default values if localStorage is empty
   const [jwtToken, setJwtToken] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userDetails, setUserDetails] = useState(() => {
-    const savedUserDetails = localStorage.getItem("userDetails");
-    return savedUserDetails
-      ? JSON.parse(savedUserDetails)
-      : {
-          id: "",
-          profilePic: null,
-          name: "",
-          password: "",
-          address: "",
-          phoneNumber: "",
-          locality: "",
-          email: "",
-          previewUrl: null,
-          file: null,
-          filePath: null,
-        };
-  });
+  const [userDetails, setUserDetails] = useState(() =>
+    setUserDetailsInLocalStorage()
+  );
 
+  function setUserDetailsInLocalStorage() {
+    {
+      const savedUserDetails = localStorage.getItem("userDetails");
+      return savedUserDetails
+        ? JSON.parse(savedUserDetails)
+        : {
+            id: "",
+            profilePic: null,
+            name: "",
+            password: "",
+            address: "",
+            phoneNumber: "",
+            locality: "",
+            email: "",
+            previewUrl: null,
+            file: null,
+            filePath: null,
+          };
+    }
+  }
   console.log("Context Provider Rendered with userDetails:", userDetails);
   console.log(
     "Context Provider Rendered with isAuthenticated:",

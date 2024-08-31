@@ -33,7 +33,7 @@ module.exports.logIn = async (req, res) => {
   try {
     const userData = await authenticationServices.logInService(req.body);
     console.log(userData, "Controller");
-    res.status(200).json({ message: "User created successfully", userData });
+    res.status(200).json({ message: "User LoggeIn successfully", userData });
   } catch (error) {
     // <-- Proper catch block
     console.log(error);
