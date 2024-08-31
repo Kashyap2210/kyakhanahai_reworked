@@ -2,19 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App.jsx";
 import "./App.css";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 console.log("App is running now");
 
 // Importing components for rendering for specific paths
 import Mainpage from "./components/Mainpage.jsx";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Adddish from "./components/Adddish";
-import Showdish from "./components/Showdish";
-import Getdish from "./components/Getdish";
-// import Checkplaces from "./components/Checkplaces";
-import Profile from "./components/Profile";
+import Login from "./components/Login.jsx";
+import Signup from "./components/Signup.jsx";
+import Adddish from "./components/Adddish.jsx";
+import Showdish from "./components/Showdish.jsx";
+import Getdish from "./components/Getdish.jsx";
+import Profile from "./components/Profile.jsx";
 import Bavarchi from "./components/Bavarchi.jsx";
 import Checkplaces from "./components/Checkplaces.jsx";
 import Contactus from "./components/Contactus.jsx";
@@ -33,7 +32,6 @@ const router = createBrowserRouter([
       { path: "/adddish", element: <Adddish /> },
       { path: "/showdish", element: <Showdish /> },
       { path: "/getdish", element: <Getdish /> },
-      // { path: "/checkplaces", element: <Checkplaces /> },
       { path: "/profile", element: <Profile /> },
       { path: "/bavarchi", element: <Bavarchi /> },
       { path: "/checkplaces", element: <Checkplaces /> },
