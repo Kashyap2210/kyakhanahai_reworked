@@ -9,6 +9,7 @@ const MongoStore = require("connect-mongo");
 const connectDB = require("./db.js");
 const authenticationRoutes = require("./Routes/authenticationRoutes.js");
 const dishRoutes = require("./Routes/dishRoutes.js");
+const path = require("path");
 
 // Connection To MongoDB Start
 const dbUrl = process.env.ATLAS_DB_URL;
@@ -34,6 +35,7 @@ app.use(
 // Cors Setup End
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser("asdfghjkl"));
 
