@@ -4,6 +4,8 @@ import App from "./Components/App.jsx";
 import "./App.css";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
+console.log("App is running now");
+
 // Importing components for rendering for specific paths
 import Mainpage from "./Components/Mainpage.jsx";
 import Login from "./Components/Login";
