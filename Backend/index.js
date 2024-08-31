@@ -28,44 +28,6 @@ const allowedOrigins = [
   "https://kyakhanahai-reworked.onrender.com",
 ];
 
-// app.use(
-//   cors({
-//     origin: (origin, callback) => {
-//       // Allow requests with no origin (like mobile apps or curl requests)
-//       if (!origin) return callback(null, true);
-//       if (allowedOrigins.includes(origin)) {
-//         return callback(null, true);
-//       } else {
-//         return callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//     methods: "GET,POST,PUT,DELETE",
-//     allowedHeaders: "Content-Type,Authorization",
-//     credentials: true,
-//   })
-// );
-
-// Cors Setup Start
-// app.use(
-//   cors({
-//     origin: process.env.ALLOWED_URLS,
-//     methods: "GET,POST,PUT,DELETE",
-//     allowedHeaders: "Content-Type, Authorization",
-//     credentials: true,
-//   })
-//   // cors()
-// );
-// Cors Setup End
-
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173", // Replace with your frontend origin
-//     methods: "GET,POST,PUT,DELETE",
-//     allowedHeaders: "Content-Type,Authorization",
-//     credentials: true,
-//   })
-// );
-
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -87,11 +49,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser("asdfghjkl"));
-
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send({ message: "Something went wrong!" });
-});
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,
@@ -121,10 +78,22 @@ const sessionOptions = {
 
 app.use(session(sessionOptions));
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "dist")));
+
 // Routing Middlewares Start
 app.use("/api/authenticate", authenticationRoutes);
 app.use("/api/dish", dishRoutes); // Uncomment when ready
 // Routing Middlewares End
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ message: "Something went wrong!" });
+});
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
