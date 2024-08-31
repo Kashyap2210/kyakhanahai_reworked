@@ -67,7 +67,7 @@ export default function Login() {
           />
         </div>
         <div className="m-8">
-          <Box component="form" noValidate autoComplete="off">
+          <Box noValidate autoComplete="off">
             <TextField
               id="outlined-password-login"
               label="Password"
